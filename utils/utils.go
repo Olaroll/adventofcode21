@@ -11,7 +11,7 @@ import (
 func GetLines(path string) []string {
 	bytes, err := os.ReadFile(path)
 	if err != nil {
-		log.Fatalln("could not read file %v", path)
+		log.Fatalf("could not read file %v\n", path)
 	}
 
 	return strings.Split(strings.ReplaceAll(string(bytes), "\r\n", "\n"), "\n")
