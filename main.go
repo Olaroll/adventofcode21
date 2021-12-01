@@ -1,8 +1,8 @@
 package main
 
 import (
-	"adventofcode21/day1"
 	"fmt"
+	"github.com/Olaroll/adventofcode21/day1"
 )
 
 func main() {

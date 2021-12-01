@@ -1,6 +1,6 @@
 package day1
 
-import "adventofcode21/utils"
+import "github.com/Olaroll/adventofcode21/utils"
 
 func Solve1() int {
 	nums := utils.GetLinesAsInts("./day1/input.txt")
@@ -19,7 +19,6 @@ func Solve1() int {
 
 func Solve2() int {
 	nums := utils.GetLinesAsInts("./day1/input.txt")
-
 
 	windowLen := 3
 	var prev []int
