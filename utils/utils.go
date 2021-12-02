@@ -14,7 +14,17 @@ func GetLines(path string) []string {
 		log.Fatalf("could not read file %v\n", path)
 	}
 
-	return strings.Split(strings.ReplaceAll(string(bytes), "\r\n", "\n"), "\n")
+	lines := strings.Split(strings.ReplaceAll(string(bytes), "\r\n", "\n"), "\n")
+
+	if len(lines) == 0 {
+		log.Fatalf("no lines found in %v\n", path)
+	}
+
+	if lines[len(lines)-1] == "" {
+		lines = lines[:len(lines)-1]
+	}
+
+	return lines
 }
 
 func GetLinesAsInts(path string) []int {
@@ -22,10 +32,8 @@ func GetLinesAsInts(path string) []int {
 
 	nums := make([]int, 0, len(lines))
 	for _, line := range lines {
-		if line != "" {
-			num := Atoi(line)
-			nums = append(nums, num)
-		}
+		num := Atoi(line)
+		nums = append(nums, num)
 	}
 
 	return nums

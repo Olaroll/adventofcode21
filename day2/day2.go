@@ -17,9 +17,8 @@ func Solve1() int {
 	for _, line := range lines {
 		split := strings.Split(line, " ")
 
-		if len(split) == 2 {
-			commands = append(commands, Command{split[0], utils.Atoi(split[1])})
-		}
+		command := Command{split[0], utils.Atoi(split[1])}
+		commands = append(commands, command)
 	}
 
 	var X int
@@ -45,9 +44,8 @@ func Solve2() int {
 	for _, line := range lines {
 		split := strings.Split(line, " ")
 
-		if len(split) == 2 {
-			commands = append(commands, Command{split[0], utils.Atoi(split[1])})
-		}
+		command := Command{split[0], utils.Atoi(split[1])}
+		commands = append(commands, command)
 	}
 
 	var X int
