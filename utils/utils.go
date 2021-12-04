@@ -46,3 +46,11 @@ func Atoi(str string) int {
 	}
 	return num
 }
+
+func AtoiSlc(slc []string) []int {
+	var ret []int
+	for _, str := range slc {
+		ret = append(ret, Atoi(str))
+	}
+	return ret
+}
