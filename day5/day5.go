@@ -2,7 +2,7 @@ package day5
 
 import (
 	"github.com/Olaroll/adventofcode21/utils"
-	"log"
+	"math"
 	"strings"
 )
 
@@ -44,50 +44,9 @@ func makeBoard(size int) Board {
 }
 
 func (b Board) drawVent(vent Vent) {
-	switch {
-	case vent.x1 == vent.x2:
-		x := vent.x1
-		if vent.y1 > vent.y2 {
-			vent.y1, vent.y2 = vent.y2, vent.y1
-		}
-
-		for y := vent.y1; y <= vent.y2; y++ {
-			b[y][x]++
-		}
-
-	case vent.y1 == vent.y2:
-		y := vent.y1
-		if vent.x1 > vent.x2 {
-			vent.x1, vent.x2 = vent.x2, vent.x1
-		}
-
-		for x := vent.x1; x <= vent.x2; x++ {
-			b[y][x]++
-		}
-
-	case (vent.x1 < vent.x2 && vent.y1 < vent.y2) || (vent.x1 > vent.x2 && vent.y1 > vent.y2):
-		if vent.x1 > vent.x2 {
-			vent.x1, vent.x2 = vent.x2, vent.x1
-			vent.y1, vent.y2 = vent.y2, vent.y1
-		}
-
-		for i := 0; i <= vent.x2-vent.x1; i++ {
-			b[vent.y1+i][vent.x1+i]++
-		}
-
-	case (vent.x1 < vent.x2 && vent.y1 > vent.y2) || (vent.x1 > vent.x2 && vent.y1 < vent.y2):
-		if vent.x1 > vent.x2 {
-			vent.x1, vent.x2 = vent.x2, vent.x1
-			vent.y1, vent.y2 = vent.y2, vent.y1
-		}
-
-		for i := 0; i <= vent.x2-vent.x1; i++ {
-			b[vent.y1-i][vent.x1+i]++
-		}
-
-	default:
-		log.Fatalln("unhandled vent")
-	}
+	plotLine(vent.x1, vent.y1, vent.x2, vent.y2, func(x, y int) {
+		b[y][x]++
+	})
 }
 
 func (b Board) countGreaterThan(num int) int {
@@ -126,4 +85,70 @@ func Solve2() int {
 	}
 
 	return board.countGreaterThan(1)
+}
+
+// LINE PLOTTING STUFF (from https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm)
+
+func plotLine(x0, y0, x1, y1 int, plot func(x, y int)) {
+	if math.Abs(float64(y1-y0)) < math.Abs(float64(x1-x0)) {
+		if x0 > x1 {
+			plotLineLow(x1, y1, x0, y0, plot)
+		} else {
+			plotLineLow(x0, y0, x1, y1, plot)
+		}
+	} else {
+		if y0 > y1 {
+			plotLineHigh(x1, y1, x0, y0, plot)
+		} else {
+			plotLineHigh(x0, y0, x1, y1, plot)
+		}
+	}
+}
+
+func plotLineLow(x0, y0, x1, y1 int, plot func(x, y int)) {
+	dx := x1 - x0
+	dy := y1 - y0
+
+	yi := 1
+	if dy < 0 {
+		yi = -1
+		dy = -dy
+	}
+
+	D := (2 * dy) - dx
+	y := y0
+
+	for x := x0; x <= x1; x++ {
+		plot(x, y)
+		if D > 0 {
+			y = y + yi
+			D = D + (2 * (dy - dx))
+		} else {
+			D = D + 2*dy
+		}
+	}
+}
+
+func plotLineHigh(x0, y0, x1, y1 int, plot func(x, y int)) {
+	dx := x1 - x0
+	dy := y1 - y0
+
+	xi := 1
+	if dx < 0 {
+		xi = -1
+		dx = -dx
+	}
+
+	D := (2 * dx) - dy
+	x := x0
+
+	for y := y0; y <= y1; y++ {
+		plot(x, y)
+		if D > 0 {
+			x = x + xi
+			D = D + (2 * (dx - dy))
+		} else {
+			D = D + 2*dx
+		}
+	}
 }
