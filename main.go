@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/Olaroll/adventofcode21/day7"
+	"github.com/Olaroll/adventofcode21/day8"
 )
 
 func main() {
-	fmt.Println(day7.Solve2())
+	fmt.Println(day8.Solve2())
 }
