@@ -44,31 +44,31 @@ func Solve1() int {
 	return sum
 }
 
-func expand(counter *int, board Board, x, y int) bool {
-	*counter++
+func expand(board Board, x, y int) int {
+	counter := 1
 	board[y][x] = 9
 
 	// Check UP
 	if y > 0 && board[y-1][x] != 9 {
-		expand(counter, board, x, y-1)
+		counter += expand(board, x, y-1)
 	}
 
 	// Check DOWN
 	if y < len(board)-1 && board[y+1][x] != 9 {
-		expand(counter, board, x, y+1)
+		counter += expand(board, x, y+1)
 	}
 
 	// Check LEFT
 	if x > 0 && board[y][x-1] != 9 {
-		expand(counter, board, x-1, y)
+		counter += expand(board, x-1, y)
 	}
 
 	// Check RIGHT
 	if x < len(board[y])-1 && board[y][x+1] != 9 {
-		expand(counter, board, x+1, y)
+		counter += expand(board, x+1, y)
 	}
 
-	return true
+	return counter
 }
 
 func Solve2() int {
@@ -86,9 +86,7 @@ func Solve2() int {
 	for y := range board {
 		for x := range board[y] {
 			if checkLow(board, x, y) > 0 {
-				count := 0
-
-				expand(&count, board, x, y)
+				count := expand(board, x, y)
 				sizes = append(sizes, count)
 			}
 		}
