@@ -5,13 +5,15 @@ import (
 	"strings"
 )
 
+var dir = "./day2/"
+
 type Command struct {
 	cmd   string
 	count int
 }
 
-func Solve1() int {
-	lines := utils.GetLines("./day2/input.txt")
+func Solve1(file string) int {
+	lines := utils.GetLines(dir + file)
 
 	commands := make([]Command, 0, len(lines))
 	for _, line := range lines {
@@ -37,8 +39,8 @@ func Solve1() int {
 	return X * Y
 }
 
-func Solve2() int {
-	lines := utils.GetLines("./day2/input.txt")
+func Solve2(file string) int {
+	lines := utils.GetLines(dir + file)
 
 	commands := make([]Command, 0, len(lines))
 	for _, line := range lines {

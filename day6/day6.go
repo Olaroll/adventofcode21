@@ -6,8 +6,10 @@ import (
 	"strings"
 )
 
-func Solve1() int {
-	lines := utils.GetLines("./day6/input.txt")
+var dir = "./day6/"
+
+func Solve1(file string) int {
+	lines := utils.GetLines(dir + file)
 	fish := utils.AtoiSlc(strings.Split(lines[0], ","))
 
 	DAYS := 80
@@ -27,8 +29,8 @@ func Solve1() int {
 	return len(fish)
 }
 
-func Solve2() int {
-	lines := utils.GetLines("./day6/input.txt")
+func Solve2(file string) int {
+	lines := utils.GetLines(dir + file)
 	fish := utils.AtoiSlc(strings.Split(lines[0], ","))
 
 	DAYS := 256

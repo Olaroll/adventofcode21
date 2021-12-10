@@ -5,8 +5,10 @@ import (
 	"sort"
 )
 
-func Solve1() int {
-	lines := utils.GetLines("./day10/input.txt")
+var dir = "./day10/"
+
+func Solve1(file string) int {
+	lines := utils.GetLines(dir + file)
 
 	values := make(map[rune]int)
 	values[')'] = 3
@@ -42,8 +44,8 @@ endline:
 	return sum
 }
 
-func Solve2() int {
-	lines := utils.GetLines("./day10/input.txt")
+func Solve2(file string) int {
+	lines := utils.GetLines(dir + file)
 
 	values := make(map[rune]int)
 	values[')'] = 1

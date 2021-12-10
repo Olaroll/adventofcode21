@@ -2,8 +2,10 @@ package day1
 
 import "github.com/Olaroll/adventofcode21/utils"
 
-func Solve1() int {
-	nums := utils.GetLinesAsInts("./day1/input.txt")
+var dir = "./day1/"
+
+func Solve1(file string) int {
+	nums := utils.GetLinesAsInts(dir + file)
 
 	var prev int
 	var count int
@@ -17,8 +19,8 @@ func Solve1() int {
 	return count
 }
 
-func Solve2() int {
-	nums := utils.GetLinesAsInts("./day1/input.txt")
+func Solve2(file string) int {
+	nums := utils.GetLinesAsInts(dir + file)
 
 	windowLen := 3
 	var prev []int

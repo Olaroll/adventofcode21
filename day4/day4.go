@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+var dir = "./day4/"
+
 // Not too happy with today's solutions and how long they took,
 // but at least I got it done in the end
 
@@ -70,8 +72,8 @@ func sumNotFound(board Board) int {
 	return sum
 }
 
-func Solve1() int {
-	lines := utils.GetLines("./day4/input.txt")
+func Solve1(file string) int {
+	lines := utils.GetLines(dir + file)
 
 	nums := utils.AtoiSlc(strings.Split(lines[0], ","))
 	lines = lines[1:]
@@ -100,8 +102,8 @@ func Solve1() int {
 	return 0
 }
 
-func Solve2() int {
-	lines := utils.GetLines("./day4/input.txt")
+func Solve2(file string) int {
+	lines := utils.GetLines(dir + file)
 
 	nums := utils.AtoiSlc(strings.Split(lines[0], ","))
 	lines = lines[1:]

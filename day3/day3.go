@@ -6,11 +6,13 @@ import (
 	"strconv"
 )
 
+var dir = "./day3/"
+
 // Not too happy with today's solutions and how long they took,
 // but at least I got it done in the end
 
-func Solve1() int {
-	lines := utils.GetLines("./day3/input.txt")
+func Solve1(file string) int {
+	lines := utils.GetLines(dir + file)
 
 	var binlines []int
 	for _, line := range lines {
@@ -47,8 +49,8 @@ func Solve1() int {
 	return gamma * epsilon
 }
 
-func Solve2() int {
-	lines := utils.GetLines("./day3/input.txt")
+func Solve2(file string) int {
+	lines := utils.GetLines(dir + file)
 
 	oxyList := make([]string, len(lines))
 	copy(oxyList, lines)

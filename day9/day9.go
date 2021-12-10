@@ -5,6 +5,8 @@ import (
 	"sort"
 )
 
+var dir = "./day9/"
+
 type Board [][]byte
 
 func checkLow(board Board, x, y int) int {
@@ -23,8 +25,8 @@ func checkLow(board Board, x, y int) int {
 	return int(board[y][x] + 1)
 }
 
-func Solve1() int {
-	lines := utils.GetLines("./day9/input.txt")
+func Solve1(file string) int {
+	lines := utils.GetLines(dir + file)
 
 	board := make(Board, len(lines))
 	for y := range board {
@@ -71,8 +73,8 @@ func expand(board Board, x, y int) int {
 	return counter
 }
 
-func Solve2() int {
-	lines := utils.GetLines("./day9/input.txt")
+func Solve2(file string) int {
+	lines := utils.GetLines(dir + file)
 
 	board := make(Board, len(lines))
 	for y := range board {

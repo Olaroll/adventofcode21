@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+var dir = "./day8/"
+
 // Very iffy solution today, dunno why I didn't do the proper way >_>
 
 const (
@@ -80,8 +82,8 @@ next:
 	}
 }
 
-func Solve1() int {
-	lines := utils.GetLines("./day8/input.txt")
+func Solve1(file string) int {
+	lines := utils.GetLines(dir + file)
 
 	var count int
 	for _, line := range lines {
@@ -109,8 +111,8 @@ func Solve1() int {
 	return count
 }
 
-func Solve2() int {
-	lines := utils.GetLines("./day8/input.txt")
+func Solve2(file string) int {
+	lines := utils.GetLines(dir + file)
 
 	var sum int
 	for _, line := range lines {

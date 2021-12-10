@@ -6,8 +6,10 @@ import (
 	"strings"
 )
 
-func Solve1() int {
-	nums := utils.AtoiSlc(strings.Split(utils.GetLines("./day7/input.txt")[0], ","))
+var dir = "./day7/"
+
+func Solve1(file string) int {
+	nums := utils.AtoiSlc(strings.Split(utils.GetLines(dir + file)[0], ","))
 
 	var max int
 	var min int
@@ -37,8 +39,8 @@ func Solve1() int {
 	return bestSum
 }
 
-func Solve2() int {
-	nums := utils.AtoiSlc(strings.Split(utils.GetLines("./day7/input.txt")[0], ","))
+func Solve2(file string) int {
+	nums := utils.AtoiSlc(strings.Split(utils.GetLines(dir + file)[0], ","))
 
 	var max int
 	var min int

@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+var dir = "./day5/"
+
 type Vent struct {
 	x1, y1 int
 	x2, y2 int
@@ -61,8 +63,8 @@ func (b Board) countGreaterThan(num int) int {
 	return count
 }
 
-func Solve1() int {
-	lines := utils.GetLines("./day5/input.txt")
+func Solve1(file string) int {
+	lines := utils.GetLines(dir + file)
 
 	vents := linesToVents(lines, true)
 	board := makeBoard(1000)
@@ -74,8 +76,8 @@ func Solve1() int {
 	return board.countGreaterThan(1)
 }
 
-func Solve2() int {
-	lines := utils.GetLines("./day5/input.txt")
+func Solve2(file string) int {
+	lines := utils.GetLines(dir + file)
 
 	vents := linesToVents(lines, false)
 	board := makeBoard(1000)
