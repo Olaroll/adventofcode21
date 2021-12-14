@@ -1,11 +1,11 @@
-package day2
+package day02
 
 import (
 	"github.com/Olaroll/adventofcode21/utils"
 	"strings"
 )
 
-var dir = "./day2/"
+var dir = "./day02/"
 
 type Command struct {
 	cmd   string

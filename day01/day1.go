@@ -1,8 +1,8 @@
-package day1
+package day01
 
 import "github.com/Olaroll/adventofcode21/utils"
 
-var dir = "./day1/"
+var dir = "./day01/"
 
 func Solve1(file string) int {
 	nums := utils.GetLinesAsInts(dir + file)

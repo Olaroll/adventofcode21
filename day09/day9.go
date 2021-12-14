@@ -1,11 +1,11 @@
-package day9
+package day09
 
 import (
 	"github.com/Olaroll/adventofcode21/utils"
 	"sort"
 )
 
-var dir = "./day9/"
+var dir = "./day09/"
 
 type Board [][]byte
 

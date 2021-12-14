@@ -1,4 +1,4 @@
-package day8
+package day08
 
 import (
 	"github.com/Olaroll/adventofcode21/utils"
@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-var dir = "./day8/"
+var dir = "./day08/"
 
 // Very iffy solution today, dunno why I didn't do the proper way >_>
 

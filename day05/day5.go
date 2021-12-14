@@ -1,4 +1,4 @@
-package day5
+package day05
 
 import (
 	"github.com/Olaroll/adventofcode21/utils"
@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-var dir = "./day5/"
+var dir = "./day05/"
 
 type Vent struct {
 	x1, y1 int

@@ -1,4 +1,4 @@
-package day3
+package day03
 
 import (
 	"github.com/Olaroll/adventofcode21/utils"
@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-var dir = "./day3/"
+var dir = "./day03/"
 
 // Not too happy with today's solutions and how long they took,
 // but at least I got it done in the end

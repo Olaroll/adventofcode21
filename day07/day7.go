@@ -1,4 +1,4 @@
-package day7
+package day07
 
 import (
 	"github.com/Olaroll/adventofcode21/utils"
@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-var dir = "./day7/"
+var dir = "./day07/"
 
 func Solve1(file string) int {
 	nums := utils.AtoiSlc(strings.Split(utils.GetLines(dir + file)[0], ","))
@@ -22,7 +22,7 @@ func Solve1(file string) int {
 		}
 	}
 
-	//var best int
+	// var best int
 	bestSum := math.MaxInt
 	for i := min; i <= max; i++ {
 		var sum int
@@ -32,7 +32,7 @@ func Solve1(file string) int {
 
 		if sum < bestSum {
 			bestSum = sum
-			//best = i
+			// best = i
 		}
 	}
 
@@ -53,7 +53,7 @@ func Solve2(file string) int {
 		}
 	}
 
-	//var best int
+	// var best int
 	bestSum := math.MaxInt
 	for i := min; i <= max; i++ {
 		var sum int
@@ -64,7 +64,7 @@ func Solve2(file string) int {
 
 		if sum < bestSum {
 			bestSum = sum
-			//best = i
+			// best = i
 		}
 	}
 

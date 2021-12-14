@@ -1,4 +1,4 @@
-package day6
+package day06
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-var dir = "./day6/"
+var dir = "./day06/"
 
 func Solve1(file string) int {
 	lines := utils.GetLines(dir + file)
