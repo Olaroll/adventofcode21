@@ -16,27 +16,19 @@ func GetLines(path string) []string {
 
 	lines := strings.Split(strings.ReplaceAll(string(bytes), "\r\n", "\n"), "\n")
 
-	if len(lines) == 0 {
-		log.Fatalf("no lines found in %v\n", path)
-	}
-
 	if lines[len(lines)-1] == "" {
 		lines = lines[:len(lines)-1]
+	}
+
+	if len(lines) == 0 {
+		log.Fatalf("no lines found in %v\n", path)
 	}
 
 	return lines
 }
 
 func GetLinesAsInts(path string) []int {
-	lines := GetLines(path)
-
-	nums := make([]int, 0, len(lines))
-	for _, line := range lines {
-		num := Atoi(line)
-		nums = append(nums, num)
-	}
-
-	return nums
+	return AtoiSlc(GetLines(path))
 }
 
 func Atoi(str string) int {
@@ -48,9 +40,9 @@ func Atoi(str string) int {
 }
 
 func AtoiSlc(slc []string) []int {
-	var ret []int
-	for _, str := range slc {
-		ret = append(ret, Atoi(str))
+	ret := make([]int, len(slc))
+	for i := range slc {
+		ret[i] = Atoi(slc[i])
 	}
 	return ret
 }
