@@ -74,12 +74,6 @@ var foundScanners = [][3]int{{0, 0, 0}}
 func Solve2(file string) int {
 	solve(file)
 
-	fmt.Println()
-	for _, xyz := range foundScanners {
-		fmt.Println(xyz)
-	}
-	fmt.Println()
-
 	var max int
 	for _, a := range foundScanners {
 		for _, b := range foundScanners {
@@ -89,7 +83,6 @@ func Solve2(file string) int {
 
 			d := abs(a[0]-b[0]) + abs(a[1]-b[1]) + abs(a[2]-b[2])
 			if d > max {
-				fmt.Printf("Max between %v and %v\n", a, b)
 				max = d
 			}
 		}
