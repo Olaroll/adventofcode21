@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/Olaroll/adventofcode21/day19"
+	"github.com/Olaroll/adventofcode21/day20"
 )
 
 func main() {
@@ -11,5 +11,5 @@ func main() {
 	flag.StringVar(&file, "f", "input.txt", "Sets the filename that's used as input")
 	flag.Parse()
 
-	fmt.Printf("Result: %v\n", day19.Solve2(file))
+	fmt.Printf("Result: %v\n", day20.Solve2(file))
 }
